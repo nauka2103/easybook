@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Hotel – Easy Booking</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">Easy<span>Booking</span></div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/hotels">Hotels</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="container">
+      <h2 style="text-align:center;">Add Hotel</h2>
+
+      <div class="form-card" style="max-width: 700px;">
+        <form method="POST" action="/hotels" class="contact-form">
+          <div class="form-group">
+            <label>Title</label>
+            <input name="title" required />
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" rows="4"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>City</label>
+            <input name="location" required />
+          </div>
+
+          <div class="form-group">
+            <label>Price per night (₸)</label>
+            <input name="price_per_night" type="number" min="0" required />
+          </div>
+
+          <button type="submit" class="btn btn-full">Create</button>
+          <div style="margin-top: 10px; text-align:center;">
+            <a href="/hotels">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Easy Booking. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Booking — Simple Online Booking</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">Easy<span>Booking</span></div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/hotels">Hotels</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Booking Made Easy</h1>
+      <p>Easy Booking is a fast and secure platform for booking hotels, apartments, and services online.</p>
+
+      <div class="hero-search">
+        <!-- ВАЖНО: у тебя нет маршрута /search, поэтому делаем поиск через /hotels?q=... -->
+        <form action="/hotels" method="GET" class="hero-search-form">
+          <input type="text" name="q" placeholder="Search hotels, apartments, cities..." />
+          <button type="submit" class="btn">Search</button>
+        </form>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <a href="/hotels/new" class="btn btn-outline">Add hotel</a>
+        <a href="/hotels" class="btn">Browse hotels</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Why Easy Booking?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Fast</h3>
+          <p>Complete your booking in just a few clicks with no unnecessary steps.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Secure</h3>
+          <p>Modern security standards and safe online payments.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Convenient</h3>
+          <p>Works perfectly on desktop, tablet, and mobile devices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="how">
+    <div class="container">
+      <h2>How It Works</h2>
+      <ol class="steps">
+        <li>Choose a service or accommodation</li>
+        <li>Select dates and details</li>
+        <li>Confirm your booking online</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Easy Booking. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

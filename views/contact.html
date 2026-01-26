@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <title>Контакты – Easy Booking</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+    <header class="header">
+    <div class="container">
+        <div class="logo">Easy<span>Booking</span></div>
+        <nav class="nav">
+        <a href="/">Home</a>
+                <a href="/hotels">Hotels</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        </nav>
+    </div>
+    </header>
+
+    <section class="features">
+    <div class="container">
+        <h2 style="text-align:center;">Связаться с нами</h2>
+        <p style="text-align:center; max-width:600px; margin: 0 auto 40px;">
+        Оставьте заявку — мы перезвоним или ответим на email.
+        </p>
+
+        <div class="form-card">
+        <form action="/contact" method="POST" class="contact-form">
+
+            <div class="form-group">
+            <label for="name">ФИО</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Например: Айдос Сагындык"
+                required
+            />
+            </div>
+
+            <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+7 701 123 45 67"
+                pattern="^\+7\d{10}$"
+                title="Формат: +7XXXXXXXXXX (10 цифр после +7)"
+                required
+            />
+            </div>
+
+            <div class="form-group">
+            <label for="city">Город</label>
+            <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Алматы / Астана / Шымкент"
+                required
+            />
+            </div>
+
+            <div class="form-group">
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@mail.com"
+                required
+            />
+            </div>
+
+            <div class="form-group">
+            <label for="message">Сообщение</label>
+            <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Напишите, что вы хотите забронировать и на какие даты"
+                required
+            ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-full">
+            Отправить
+            </button>
+
+        </form>
+        </div>
+    </div>
+    </section>
+
+    <footer class="footer">
+    <p>© 2025 Easy Booking</p>
+    </footer>
+
+</body>
+</html>

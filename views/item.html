@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item Details – Easy Booking</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">Easy<span>Booking</span></div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/hotels">Hotels</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="container">
+      <h2 style="text-align:center;">Item #{{id}}</h2>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="feature-card" style="padding: 40px;">
+          <h3>{{title}}</h3>
+          <p>{{description}}</p>
+
+          <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee;">
+            <h4>Booking Information</h4>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+              <li><strong>Price:</strong> {{price}}</li>
+              <li><strong>Availability:</strong> {{availability}}</li>
+              <li><strong>Location:</strong> {{location}}</li>
+            </ul>
+          </div>
+
+          <!-- CRUD buttons -->
+          <div style="margin-top: 26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a href="/contact" class="btn">Book Now</a>
+
+            <!-- UPDATE (UI) -->
+            <a href="/item/{{id}}/edit" class="btn btn-outline">Edit</a>
+
+            <!-- DELETE (UI) -->
+            <form method="POST" action="/item/{{id}}/delete" style="display:inline;">
+              <button
+                type="submit"
+                class="btn btn-outline"
+                onclick="return confirm('Are you sure you want to delete this hotel?');"
+              >
+                Delete
+              </button>
+            </form>
+
+            <a href="/hotels" class="btn btn-outline">Back to list</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Easy Booking. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

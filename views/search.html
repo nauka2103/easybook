@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results – Easy Booking</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">Easy<span>Booking</span></div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/hotels">Hotels</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="container">
+      <h2 style="text-align:center;">Search Results</h2>
+      <p style="text-align:center; max-width:600px; margin: 0 auto 40px;">
+        Showing results for: <strong>{{q}}</strong>
+      </p>
+
+      <div class="features-grid">
+        {{results}}
+      </div>
+
+      <div style="text-align:center; margin-top: 40px;">
+        <form action="/search" method="GET" style="max-width: 600px; margin: 0 auto; display: flex; gap: 10px;">
+          <input 
+            type="text" 
+            name="q" 
+            placeholder="Search for bookings..." 
+            required
+            style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px;"
+          />
+          <button type="submit" class="btn">Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Easy Booking. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotels – Easy Booking</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">Easy<span>Booking</span></div>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/hotels">Hotels</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="features">
+  <div class="container">
+    <h2 style="text-align:center;">All Hotels</h2>
+
+    <div style="text-align:center; margin: 14px 0 22px;">
+      <a class="btn" href="/hotels/new">Add hotel</a>
+      <!-- optional: link to API with same query -->
+      <a class="btn btn-outline" href="{{apiUrl}}" target="_blank" rel="noopener">API</a>
+    </div>
+
+    <div class="form-card" style="max-width: 900px;">
+      <form action="/hotels" method="GET" class="contact-form">
+        <div class="form-group">
+          <label for="q">Search</label>
+          <input type="text" id="q" name="q" value="{{q}}" placeholder="Hotel, apartment, city..." />
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <select id="city" name="city" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px;">
+            {{cityOptions}}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="minPrice">Min price (₸)</label>
+          <input type="number" id="minPrice" name="minPrice" value="{{minPrice}}" placeholder="0" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label for="maxPrice">Max price (₸)</label>
+          <input type="number" id="maxPrice" name="maxPrice" value="{{maxPrice}}" placeholder="200000" min="0" />
+        </div>
+
+        <!-- NEW: sorting -->
+        <div class="form-group">
+          <label for="sort">Sort</label>
+          <select id="sort" name="sort" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px;">
+            {{sortOptions}}
+          </select>
+        </div>
+
+        <!-- NEW: projection fields -->
+        <div class="form-group">
+          <label for="fields">Fields (projection)</label>
+          <input type="text" id="fields" name="fields" value="{{fields}}" placeholder="title,location,price_per_night" />
+        </div>
+
+        <button type="submit" class="btn btn-full">Apply filters</button>
+      </form>
+    </div>
+
+    <div class="features-grid" style="margin-top: 30px;">
+      {{results}}
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 Easy Booking. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
