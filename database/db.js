@@ -1,7 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const uri = process.env.MONGO_URI;          
-const dbName = process.env.DB_NAME || 'easybooking';
+const uri = process.env.MONGO_URI;
 
 let client;
 let db;
@@ -14,7 +13,7 @@ async function connectToDb() {
     await client.connect();
 
     console.log('Successfully connected to MongoDB');
-    db = client.db(dbName);
+    db = client.db(); 
     return db;
   } catch (err) {
     console.error('Failed to connect to MongoDB', err.message);
@@ -23,7 +22,9 @@ async function connectToDb() {
 }
 
 function getDb() {
-  if (!db) throw new Error('Database not initialized. Call connectToDb first.');
+  if (!db) {
+    throw new Error('Database not initialized. Call connectToDb first.');
+  }
   return db;
 }
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+require('dotenv').config();
 const { ObjectId } = require('mongodb');
 const { connectToDb, getDb } = require('./database/db');
 
@@ -77,7 +78,7 @@ const buildSortFromQuery = (query) => {
     case 'price_desc': return { price_per_night: -1, title: 1 };
     case 'title_asc': return { title: 1, price_per_night: 1 };
     case 'title_desc': return { title: -1, price_per_night: 1 };
-    default: return { price_per_night: 1, title: 1 }; 
+    default: return { price_per_night: 1, title: 1 };
   }
 };
 
@@ -111,8 +112,9 @@ const buildProjectionFromQuery = (query) => {
     console.error('Server will still start, but DB routes may fail.');
   }
 
-  app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+  const PORT = process.env.PORT || 3000; 
+  app.listen(PORT, () => {              
+    console.log(`Server running on port ${PORT}`);
   });
 })();
 
@@ -155,8 +157,8 @@ app.get('/hotels', async (req, res) => {
     city = '',
     minPrice = '',
     maxPrice = '',
-    sort = '',    
-    fields = ''   
+    sort = '',
+    fields = ''
   } = req.query;
 
   const filter = buildFilterFromQuery(req.query);
@@ -214,10 +216,10 @@ app.get('/hotels', async (req, res) => {
     cityOptions: safeHtml(options),
     minPrice,
     maxPrice,
-    sortOptions: safeHtml(sortOptions), 
-    sort,                               
-    fields,                             
-    apiUrl,                            
+    sortOptions: safeHtml(sortOptions),
+    sort,
+    fields,
+    apiUrl,
     results: safeHtml(results)
   }));
 });
@@ -245,7 +247,6 @@ app.post('/hotels', async (req, res) => {
   res.redirect(`/item/${result.insertedId}`);
 });
 
-// UI: READ item
 app.get('/item/:id', async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).sendFile(path.join(__dirname, 'views', '404.html'));
@@ -267,7 +268,6 @@ app.get('/item/:id', async (req, res) => {
   }));
 });
 
-// UI: UPDATE (form)
 app.get('/item/:id/edit', async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).sendFile(path.join(__dirname, 'views', '404.html'));
@@ -288,7 +288,6 @@ app.get('/item/:id/edit', async (req, res) => {
   }));
 });
 
-// UI: UPDATE (submit)
 app.post('/item/:id', async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).sendFile(path.join(__dirname, 'views', '404.html'));
@@ -312,7 +311,6 @@ app.post('/item/:id', async (req, res) => {
   res.redirect(`/item/${req.params.id}`);
 });
 
-// UI: DELETE
 app.post('/item/:id/delete', async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).sendFile(path.join(__dirname, 'views', '404.html'));
@@ -327,9 +325,6 @@ app.post('/item/:id/delete', async (req, res) => {
   res.redirect('/hotels');
 });
 
-// --------------------
-// API: FILTERING + SORTING + PROJECTION (20 points)
-// --------------------
 app.get('/api/hotels', async (req, res) => {
   const db = getDb();
 
@@ -411,7 +406,6 @@ app.delete('/api/hotels/:id', async (req, res) => {
   res.json({ message: 'Deleted' });
 });
 
-// 404
 app.use((req, res) => {
   if (req.path.startsWith('/api'))
     res.status(404).json({ error: 'Not found' });
