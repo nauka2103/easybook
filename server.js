@@ -4,7 +4,7 @@ const fs = require('fs');
 require('dotenv').config();
 
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 const bcrypt = require('bcrypt');
 
 const { ObjectId } = require('mongodb');
