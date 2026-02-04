@@ -298,3 +298,67 @@ body {
   transform: translateY(-6px);
   box-shadow: 0 20px 35px rgba(0,0,0,0.1);
 }
+
+/* Auth (Login) */
+.auth {
+  min-height: calc(100vh - 82px);
+  display: flex;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.auth-card {
+  max-width: 460px;
+  margin: 0 auto;
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  overflow: hidden;
+}
+
+.auth-head {
+  padding: 26px 28px 0 28px;
+}
+
+.auth-head h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.auth-head p {
+  color: #9ca3af;
+  margin-bottom: 18px;
+}
+
+.auth-form {
+  padding: 0 28px 26px 28px;
+}
+
+.auth-form .form-group {
+  margin-bottom: 16px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: #e5e7eb;
+  font-size: 16px;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.auth-hint {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #9ca3af;
+  text-align: center;
+}

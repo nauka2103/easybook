@@ -1,27 +1,49 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Login</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Login</h1>
+  <header class="header">
+    <div class="container">
+      <div class="logo">Easy<span>Book</span></div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/hotels">Hotels</a>
+      </nav>
+    </div>
+  </header>
 
-    <form method="POST" action="/login">
-      <label>Username</label>
-      <input name="username" required>
+  <main class="auth">
+    <div class="container">
+      <div class="auth-card">
+        <div class="auth-head">
+          <h1>Welcome back</h1>
+          <p>Login to manage hotels and bookings</p>
+        </div>
 
-      <label>Password</label>
-      <input name="password" type="password" required>
+        <form class="auth-form" method="POST" action="/login">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" placeholder="Enter username" autocomplete="username" required>
+          </div>
 
-      <button class="btn" type="submit">Login</button>
-    </form>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter password" autocomplete="current-password" required>
+          </div>
 
-    <p style="margin-top:12px;">
-      Default: <b>admin</b>
-    </p>
-  </div>
+          <button class="btn btn-full" type="submit">Login</button>
+
+          <div class="auth-hint">
+            Default login: <b>admin</b>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
