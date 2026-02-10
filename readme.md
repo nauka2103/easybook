@@ -1,4 +1,4 @@
-# EasyBooking API (Assignment 3 - Part 1)
+# EasyBooking API 
 
 A backend API for a hotel booking system migrated from SQLite to **MongoDB (Native Driver)**. This project implements full CRUD operations, advanced filtering, and a clean project structure.
 
