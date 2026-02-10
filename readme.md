@@ -18,7 +18,7 @@ A backend API for a hotel booking system migrated from SQLite to **MongoDB (Nati
     * **Delete:** `DELETE /api/hotels/:id`.
     * Status code management (201 Created, 400 Bad Request, 404 Not Found).
 
-### **3. Student C (The Optimizer)**
+### **3. Student A and B (The Optimizer)**
 * **Responsibilities:**
     * **Advanced Read:** `GET /api/hotels` with:
         * *Filtering* (by City, Min Price, Max Price).
